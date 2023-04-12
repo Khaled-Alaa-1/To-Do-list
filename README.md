@@ -148,8 +148,8 @@ Give a ⭐️ if you like this project!
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-
-I would like to thank...
+   I would like to thank Microverse.
+https://web.archive.org/web/20180320194056/http://www.getminimalist.com:80/
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -157,7 +157,7 @@ I would like to thank...
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](https://github.com/Khaled-Alaa-1/Portfolio-setup/tree/main/MIT.md) licensed.
+This project is [MIT](https://github.com/Khaled-Alaa-1/To-Do-list/blob/list-structure/MIT.md) licensed.
 
 
 

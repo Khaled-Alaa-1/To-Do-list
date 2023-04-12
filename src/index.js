@@ -40,27 +40,27 @@ window.onload = render;
 const items = document.querySelectorAll('.task');
 let draggingItem = null;
 
-items.forEach(item => {
-  item.addEventListener('dragstart', function() {
+items.forEach((item) => {
+  item.addEventListener('dragstart', function () {
     draggingItem = this;
     this.classList.add('dragging');
   });
 
-  item.addEventListener('dragend', function() {
+  item.addEventListener('dragend', function () {
     draggingItem = null;
     this.classList.remove('dragging');
   });
 
-  item.addEventListener('dragover', function(e) {
+  item.addEventListener('dragover', function (e) {
     e.preventDefault();
     this.classList.add('over');
   });
 
-  item.addEventListener('dragleave', function() {
+  item.addEventListener('dragleave', function () {
     this.classList.remove('over');
   });
 
-  item.addEventListener('drop', function(e) {
+  item.addEventListener('drop', function (e) {
     e.preventDefault();
     this.classList.remove('over');
     if (draggingItem) {
