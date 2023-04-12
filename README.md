@@ -46,11 +46,10 @@ After you're finished please remove all the comments and instructions!
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [Portfolio] <a name="about-project"></a>
+# 📖 [To Do list] <a name="list structure"></a>
 
->Portfolio: validate contact form 
+>**ToDo List!** is my fourth project at Microverse, in this project I have created a basic list of tasks where the user can add a new task, mark as completed and delete all the completed tasks 
 
-**[: Portfolio: validate contact form]** Portfolio I can put on it all my work and personal information
 
 ## 🛠 Built With <a name="built-with">
 
@@ -77,8 +76,7 @@ After you're finished please remove all the comments and instructions!
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> Add a link to your deployed project.
-- [Live Demo Link]( https://khaled-alaa-1.github.io/Portfolio-setup/)
+- [Live Demo Link](https://khaled-alaa-1.github.io/To-Do-list/)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
@@ -100,7 +98,7 @@ Clone this repository to your desired folder:
 - clone the project using by running the following command :
 
 `git clone`
-`https://github.com/Khaled-Alaa-1/Portfolio-setup.git`
+`https://github.com/Khaled-Alaa-1/To-Do-list.git`
 
 
 
@@ -114,11 +112,6 @@ Clone this repository to your desired folder:
 - Twitter: [@Khaled86756991](https://twitter.com/Khaled86756991)
 - LinkedIn: [Khaled Alaa](https://www.linkedin.com/in/khaled-alaa-594bb9256/)
 
-👤 **Mohammad Elshaer**
-
-- GitHub: [Khaled-Alaa-1](https://github.com/ElShaer398)
-- LinkedIn: [Khaled Alaa](https://www.linkedin.com/in/mohammad-elshaer-29846b195/)
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -129,7 +122,6 @@ Clone this repository to your desired folder:
 ## 🔭 Future Features <a name="future-features"></a>
 
 - [ ] **[make the project more professional]**
-- [ ] **[I will set up the desktop version]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -156,8 +148,8 @@ Give a ⭐️ if you like this project!
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-
-I would like to thank...
+   I would like to thank Microverse.
+https://web.archive.org/web/20180320194056/http://www.getminimalist.com:80/
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -165,7 +157,7 @@ I would like to thank...
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](https://github.com/Khaled-Alaa-1/Portfolio-setup/tree/main/MIT.md) licensed.
+This project is [MIT](https://github.com/Khaled-Alaa-1/To-Do-list/blob/list-structure/MIT.md) licensed.
 
 
 
