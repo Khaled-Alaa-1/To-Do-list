@@ -1,73 +1,67 @@
 import './style.css';
+import {
+  add, render, remove, edit, move,
+} from './module/addremove.js';
 
-const tasksArray = [
-  {
-    description: 'task 1',
-    completed: false,
-    index: 1,
-  },
-  {
-    description: 'task 2',
-    completed: false,
-    index: 3,
-  },
-  {
-    description: 'task 3',
-    completed: false,
-    index: 2,
-  },
-];
+const addButton = document.querySelector('.add-button');
+addButton.addEventListener('click', () => {
+  add();
+  render();
+});
+
+const addTask = document.querySelector('.add-task');
+addTask.addEventListener('keydown', (event) => {
+  if (event.keyCode === 13) {
+    add();
+    render();
+  }
+});
 
 const tasksContainer = document.querySelector('.list-container');
-const render = () => {
-  tasksArray.sort((a, b) => a.index - b.index);
-  tasksContainer.innerHTML = '';
-  for (let i = 0; i < tasksArray.length; i += 1) {
-    const html = `
-      <div class="task">
-        <input type="checkbox" class="checkbox-input">
-        <input type="text" class="text-input" value="${tasksArray[i].description}">
-        <div class="drag-to-order">&#x22EE;</div>
-      </div>
-      <hr>
-    `;
-    tasksContainer.innerHTML += html;
+
+tasksContainer.addEventListener('click', (event) => {
+  const deleteTaskIcon = event.target.closest('.delete-task-icon');
+  if (deleteTaskIcon) {
+    const deleteTaskIcons = tasksContainer.querySelectorAll('.delete-task-icon');
+    const index = Array.from(deleteTaskIcons).indexOf(deleteTaskIcon);
+    remove(index);
+    render();
   }
-};
+});
+
+tasksContainer.addEventListener('click', (event) => {
+  const textInput = event.target.closest('.text-input');
+  if (textInput) {
+    const textInputs = tasksContainer.querySelectorAll('.text-input');
+    const index = Array.from(textInputs).indexOf(textInput);
+    edit(index);
+  }
+});
+
+tasksContainer.addEventListener('dragstart', (event) => {
+  const taskDiv = event.target.closest('.task');
+  taskDiv.classList.add('dragging');
+  event.dataTransfer.effectAllowed = 'move';
+  event.dataTransfer.setData('text/plain', taskDiv.getAttribute('data-index'));
+});
+
+tasksContainer.addEventListener('dragover', (event) => {
+  event.preventDefault();
+  const draggingTask = document.querySelector('.dragging');
+  const closestTask = event.target.closest('.task');
+  if (closestTask !== draggingTask && closestTask) {
+    const draggingIndex = parseInt(draggingTask.getAttribute('data-index'), 10);
+    const closestIndex = parseInt(closestTask.getAttribute('data-index'), 10);
+    if (draggingIndex < closestIndex) {
+      closestTask.parentNode.insertBefore(draggingTask, closestTask.nextSibling);
+      move(draggingIndex - 1, closestIndex - 1);
+    } else {
+      closestTask.parentNode.insertBefore(draggingTask, closestTask);
+      move(draggingIndex - 1, closestIndex);
+    }
+    draggingTask.setAttribute('data-index', closestIndex);
+    closestTask.setAttribute('data-index', draggingIndex);
+  }
+});
 
 window.onload = render;
-
-const items = document.querySelectorAll('.task');
-let draggingItem = null;
-
-items.forEach((item) => {
-  item.addEventListener('dragstart', function () {
-    draggingItem = this;
-    this.classList.add('dragging');
-  });
-
-  item.addEventListener('dragend', function () {
-    draggingItem = null;
-    this.classList.remove('dragging');
-  });
-
-  item.addEventListener('dragover', function (e) {
-    e.preventDefault();
-    this.classList.add('over');
-  });
-
-  item.addEventListener('dragleave', function () {
-    this.classList.remove('over');
-  });
-
-  item.addEventListener('drop', function (e) {
-    e.preventDefault();
-    this.classList.remove('over');
-    if (draggingItem) {
-      const checkbox = draggingItem.querySelector('.checkbox');
-      if (checkbox.checked) {
-        this.parentNode.insertBefore(draggingItem, this);
-      }
-    }
-  });
-});
