@@ -14,6 +14,7 @@ hr {
 input {
   border: none;
   outline: none;
+  background-color: wheat;
 }
 
 .add-button,
@@ -30,8 +31,8 @@ body {
 
 .main {
   margin-top: 20px;
-  background-color: #fff;
-  box-shadow: 10px 10px 10px 0 rgba(0, 0, 0, 0.3);
+  background-color: wheat;
+  box-shadow: 10px 10px 10px 0 rgba(51, 47, 1, 0.3);
 }
 
 header,
@@ -74,8 +75,18 @@ footer {
   justify-content: center;
 }
 
+footer:hover {
+  transition: 0.5s ease-in-out;
+  background-color: rgb(238, 203, 137);
+  color: rgb(67, 66, 14);
+}
+
 /* DOM ///////////////////////////////////////// */
 .drag-to-order {
   width: 10px;
   cursor: move;
+}
+
+.dragging {
+  opacity: 0.5;
 }
