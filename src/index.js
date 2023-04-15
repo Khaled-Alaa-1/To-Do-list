@@ -1,17 +1,8 @@
 import './style.css';
-import {add, render, remove, edit, move,} from './module/addremove.js';
+import {
+  add, render, remove, edit, move,
+} from './module/addremove.js';
 import { TODO, clearAll } from './module/interactive.js';
-
-let items = JSON.parse(localStorage.getItem('items')) || [];
-
-items = items.map((item, index) => {
-  return {
-    description: item.description,
-    completed: item.completed || false,
-    index
-  };
-});
-
 
 const addButton = document.querySelector('.add-button');
 addButton.addEventListener('click', () => {
@@ -91,6 +82,5 @@ clearAllButton.addEventListener('click', () => {
   clearAll();
   render();
 });
-
 
 window.onload = render;
