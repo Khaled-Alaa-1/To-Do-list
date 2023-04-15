@@ -5,7 +5,6 @@ import {
 
 import { TODO, clearAll } from './module/interactive.js';
 
-
 const addButton = document.querySelector('.add-button');
 addButton.addEventListener('click', () => {
   add();
@@ -78,14 +77,11 @@ tasksContainer.addEventListener('click', (event) => {
   }
 });
 
-// CLEAR ALL COMPLETED TASKS
 const clearAllButton = document.querySelector('.clear-all-completed');
 clearAllButton.addEventListener('click', () => {
   clearAll();
   render();
-
-
-const tasksContainer = document.querySelector('.list-container');
+});
 
 tasksContainer.addEventListener('click', (event) => {
   const deleteTaskIcon = event.target.closest('.delete-task-icon');
@@ -130,7 +126,6 @@ tasksContainer.addEventListener('dragover', (event) => {
     draggingTask.setAttribute('data-index', closestIndex);
     closestTask.setAttribute('data-index', draggingIndex);
   }
-
 });
 
 window.onload = render;

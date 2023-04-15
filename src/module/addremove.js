@@ -59,23 +59,13 @@ const render = () => {
       strike = '';
     }
     const html = `
-      <div class="task" draggable="true" data-index="${i}">
-        <input type="checkbox" class="checkbox-input"${checked}>
+      <div class="task">
+        <input type="checkbox" class="checkbox-input" ${checked}>
         <input type="text" class="text-input ${strike}" value="${tasksArray[i].description}">
         <div class="delete-task-icon">&#x1F5D1;</div>
         <!-- <div class="drag-to-order">&#x22EE;</div> -->        
       </div>
-
-  for (let i = 0; i < tasksArray.length; i += 1) {
-    const html = `
-      <div class="task" draggable="true" data-index="${i}">
-        <input type="checkbox" class="checkbox-input">
-        <input type="text" class="text-input" value="${tasksArray[i].description}">
-        <div class="delete-task-icon">&#x1F5D1;</div>
-        <!-- <div class="drag-to-order">&#x22EE;</div> -->        
-      </div>
       <hr>
-
     `;
     tasksContainer.innerHTML += html;
   }

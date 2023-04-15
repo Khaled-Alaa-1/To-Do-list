@@ -85,13 +85,6 @@ footer:hover {
   box-shadow: 0 0 10px 0 rgb(238, 203, 137) inset, 0 0 10px 4px rgb(238, 203, 137);
 }
 
-
-footer:hover {
-  transition: 0.5s ease-in-out;
-  background-color: rgb(238, 203, 137);
-  color: rgb(67, 66, 14);
-}
-
 .drag-to-order {
   width: 10px;
   cursor: move;
@@ -101,9 +94,7 @@ footer:hover {
   opacity: 0.5;
 }
 
-
 .strike-through {
   text-decoration: line-through;
   color: rgba(179, 142, 39, 0.45);
 }
-
