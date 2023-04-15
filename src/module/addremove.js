@@ -47,6 +47,7 @@ const render = () => {
   const tasksArray = JSON.parse(localStorage.getItem('tasksArray')) || [];
   tasksArray.sort((a, b) => a.index - b.index);
   tasksContainer.innerHTML = '';
+
   let checked = '';
   let strike = '';
   for (let i = 0; i < tasksArray.length; i += 1) {
@@ -64,6 +65,17 @@ const render = () => {
         <div class="delete-task-icon">&#x1F5D1;</div>
         <!-- <div class="drag-to-order">&#x22EE;</div> -->        
       </div>
+
+  for (let i = 0; i < tasksArray.length; i += 1) {
+    const html = `
+      <div class="task" draggable="true" data-index="${i}">
+        <input type="checkbox" class="checkbox-input">
+        <input type="text" class="text-input" value="${tasksArray[i].description}">
+        <div class="delete-task-icon">&#x1F5D1;</div>
+        <!-- <div class="drag-to-order">&#x22EE;</div> -->        
+      </div>
+      <hr>
+
     `;
     tasksContainer.innerHTML += html;
   }
