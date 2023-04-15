@@ -9,11 +9,13 @@
 hr {
   margin: 0;
   padding: 0;
+  border: 1px solid rgba(176, 154, 87, 0.795);
 }
 
 input {
   border: none;
   outline: none;
+  background-color: wheat;
 }
 
 .add-button,
@@ -30,8 +32,8 @@ body {
 
 .main {
   margin-top: 20px;
-  background-color: #fff;
-  box-shadow: 10px 10px 10px 0 rgba(0, 0, 0, 0.3);
+  background-color: wheat;
+  box-shadow: 10px 10px 10px 0 rgba(51, 47, 1, 0.3);
 }
 
 header,
@@ -67,15 +69,32 @@ footer {
 .task {
   display: flex;
   justify-content: space-between;
+  box-shadow: 0px 4px 6px rgba(238, 203, 137, 0.8);
 }
 
 footer {
+  border-color: rgb(238, 203, 137);
   display: flex;
   justify-content: center;
+  transition: all 150ms ease-in-out;
+  box-shadow: 0 0 40px 40px rgb(238, 203, 137) inset, 0 0 0 0 rgb(238, 203, 137);
 }
 
-/* DOM ///////////////////////////////////////// */
+footer:hover {
+  color: rgb(67, 66, 14);
+  box-shadow: 0 0 10px 0 rgb(238, 203, 137) inset, 0 0 10px 4px rgb(238, 203, 137);
+}
+
 .drag-to-order {
   width: 10px;
   cursor: move;
+}
+
+.dragging {
+  opacity: 0.5;
+}
+
+.strike-through {
+  text-decoration: line-through;
+  color: rgba(179, 142, 39, 0.45);
 }
