@@ -1,5 +1,3 @@
-
-
 const add = () => {
   const addTask = document.getElementById('addTask'); // get the input field element
   if (addTask.value !== '') {
@@ -15,14 +13,14 @@ const add = () => {
 
 const remove = (index) => {
   const tasksArray = JSON.parse(localStorage.getItem('tasksArray')) || [];
-  
+
   if (index >= 0 && index < tasksArray.length) {
     tasksArray.splice(index, 1);
-    
+
     for (let i = 1; i <= tasksArray.length; i += 1) {
       tasksArray[i - 1].index = i;
     }
-    
+
     localStorage.setItem('tasksArray', JSON.stringify(tasksArray));
   }
 };
@@ -46,8 +44,6 @@ const move = (fromIndex, toIndex) => {
   }
   localStorage.setItem('tasksArray', JSON.stringify(tasksArray));
 };
-
-
 
 const render = () => {
   const tasksContainer = document.querySelector('.list-container');
@@ -78,8 +74,6 @@ const render = () => {
   }
 };
 
-/*export {
-  
-}; */
-
-module.exports = add, render, remove, edit, move;
+module.exports = {
+  add, render, remove, edit, move,
+};

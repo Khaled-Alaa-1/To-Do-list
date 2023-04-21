@@ -1,29 +1,31 @@
-const add = require('./addremove');
-const remove = require('./addremove');
+// Set up the jsdom environment
+const { JSDOM } = require('jsdom');
 
+/*const { add } = require('./addremove.js');
+const { remove } = require('./addremove.js'); */
+
+import { add, remove} from './addremove'
 // Define a mock implementation of localStorage
 const localStorageMock = (() => {
   let store = {};
 
   return {
-    getItem: key => store[key] || null,
+    getItem: (key) => store[key] || null,
     setItem: (key, value) => {
       store[key] = value.toString();
     },
     clear: () => {
       store = {};
     },
-    removeItem: key => {
+    removeItem: (key) => {
       delete store[key];
-    }
+    },
   };
 })();
 
 // Set the mock implementation of localStorage as the global localStorage object
 Object.defineProperty(global, 'localStorage', { value: localStorageMock });
 
-// Set up the jsdom environment
-const { JSDOM } = require('jsdom');
 const dom = new JSDOM('<!DOCTYPE html><html><body></body></html>');
 global.document = dom.window.document;
 global.window = dom.window;
@@ -73,43 +75,41 @@ describe('add function', () => {
         {
           index: 1,
           description: 'Task 1',
-          completed: false
+          completed: false,
         },
         {
           index: 2,
           description: 'Task 2',
-          completed: false
+          completed: false,
         },
         {
           index: 3,
           description: 'Task 3',
-          completed: false
-        }
+          completed: false,
+        },
       ]));
     });
-  
+
     test('removes task from localStorage', () => {
       remove(1);
-  
+
       const tasksArray = JSON.parse(localStorage.getItem('tasksArray'));
-  
-      expect(tasksArray).toHaveLength(3);
+
+      expect(tasksArray).toHaveLength(2);
       expect(tasksArray[0].description).toBe('Task 1');
       expect(tasksArray[0].index).toBe(1);
-      expect(tasksArray[1].description).toBe('Task 2');
+      expect(tasksArray[1].description).toBe('Task 3');
       expect(tasksArray[1].index).toBe(2);
     });
-  
+
     test('updates task indices after removing a task', () => {
       remove(1);
-  
+
       const tasksArray = JSON.parse(localStorage.getItem('tasksArray'));
-  
-      expect(tasksArray).toHaveLength(3);
+
+      expect(tasksArray).toHaveLength(2);
       expect(tasksArray[0].index).toBe(1);
       expect(tasksArray[1].index).toBe(2);
     });
-   
   });
-  
 });
