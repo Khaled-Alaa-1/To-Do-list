@@ -1,10 +1,8 @@
+import { add, remove } from './addremove.js';
+
 // Set up the jsdom environment
 const { JSDOM } = require('jsdom');
 
-/*const { add } = require('./addremove.js');
-const { remove } = require('./addremove.js'); */
-
-import { add, remove} from './addremove'
 // Define a mock implementation of localStorage
 const localStorageMock = (() => {
   let store = {};
