@@ -1,6 +1,7 @@
-const addTask = document.querySelector('.add-task');
+
 
 const add = () => {
+  const addTask = document.getElementById('addTask'); // get the input field element
   if (addTask.value !== '') {
     const tasksArray = JSON.parse(localStorage.getItem('tasksArray')) || [];
     tasksArray.push({ completed: false, description: addTask.value });
@@ -41,9 +42,10 @@ const move = (fromIndex, toIndex) => {
   localStorage.setItem('tasksArray', JSON.stringify(tasksArray));
 };
 
-const tasksContainer = document.querySelector('.list-container');
+
 
 const render = () => {
+  const tasksContainer = document.querySelector('.list-container');
   const tasksArray = JSON.parse(localStorage.getItem('tasksArray')) || [];
   tasksArray.sort((a, b) => a.index - b.index);
   tasksContainer.innerHTML = '';
@@ -71,6 +73,8 @@ const render = () => {
   }
 };
 
-export {
-  add, render, remove, edit, move,
-};
+/*export {
+  
+}; */
+
+module.exports = add, render, remove, edit, move;
