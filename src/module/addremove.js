@@ -1,6 +1,5 @@
-const addTask = document.querySelector('.add-task');
-
 const add = () => {
+  const addTask = document.getElementById('addTask'); // get the input field element
   if (addTask.value !== '') {
     const tasksArray = JSON.parse(localStorage.getItem('tasksArray')) || [];
     tasksArray.push({ completed: false, description: addTask.value });
@@ -14,11 +13,16 @@ const add = () => {
 
 const remove = (index) => {
   const tasksArray = JSON.parse(localStorage.getItem('tasksArray')) || [];
-  tasksArray.splice(index, 1);
-  for (let i = 1; i <= tasksArray.length; i += 1) {
-    tasksArray[i - 1].index = i;
+
+  if (index >= 0 && index < tasksArray.length) {
+    tasksArray.splice(index, 1);
+
+    for (let i = 1; i <= tasksArray.length; i += 1) {
+      tasksArray[i - 1].index = i;
+    }
+
+    localStorage.setItem('tasksArray', JSON.stringify(tasksArray));
   }
-  localStorage.setItem('tasksArray', JSON.stringify(tasksArray));
 };
 
 const edit = (index) => {
@@ -41,9 +45,8 @@ const move = (fromIndex, toIndex) => {
   localStorage.setItem('tasksArray', JSON.stringify(tasksArray));
 };
 
-const tasksContainer = document.querySelector('.list-container');
-
 const render = () => {
+  const tasksContainer = document.querySelector('.list-container');
   const tasksArray = JSON.parse(localStorage.getItem('tasksArray')) || [];
   tasksArray.sort((a, b) => a.index - b.index);
   tasksContainer.innerHTML = '';
@@ -71,6 +74,6 @@ const render = () => {
   }
 };
 
-export {
+module.exports = {
   add, render, remove, edit, move,
 };
