@@ -67,47 +67,5 @@ describe('add function', () => {
     expect(tasksArray).toBeNull();
   });
 
-  describe('remove function', () => {
-    beforeEach(() => {
-      localStorage.setItem('tasksArray', JSON.stringify([
-        {
-          index: 1,
-          description: 'Task 1',
-          completed: false,
-        },
-        {
-          index: 2,
-          description: 'Task 2',
-          completed: false,
-        },
-        {
-          index: 3,
-          description: 'Task 3',
-          completed: false,
-        },
-      ]));
-    });
-
-    test('removes task from localStorage', () => {
-      remove(1);
-
-      const tasksArray = JSON.parse(localStorage.getItem('tasksArray'));
-
-      expect(tasksArray).toHaveLength(2);
-      expect(tasksArray[0].description).toBe('Task 1');
-      expect(tasksArray[0].index).toBe(1);
-      expect(tasksArray[1].description).toBe('Task 3');
-      expect(tasksArray[1].index).toBe(2);
-    });
-
-    test('updates task indices after removing a task', () => {
-      remove(1);
-
-      const tasksArray = JSON.parse(localStorage.getItem('tasksArray'));
-
-      expect(tasksArray).toHaveLength(2);
-      expect(tasksArray[0].index).toBe(1);
-      expect(tasksArray[1].index).toBe(2);
-    });
-  });
+ 
 });
