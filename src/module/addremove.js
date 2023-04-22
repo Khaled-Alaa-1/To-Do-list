@@ -74,4 +74,6 @@ const render = () => {
   }
 };
 
-module.exports = { add, render, remove, edit, move };
+module.exports = {
+  add, render, remove, edit, move,
+};
