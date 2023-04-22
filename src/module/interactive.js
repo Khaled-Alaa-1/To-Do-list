@@ -26,4 +26,6 @@ const clearAll = () => {
   localStorage.setItem('tasksArray', JSON.stringify(tasksArray));
 };
 
-export { TODO, clearAll };
+module.exports = {
+  TODO, clearAll
+};
