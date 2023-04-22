@@ -11,9 +11,9 @@ addButton.addEventListener('click', () => {
   render();
 });
 
-const addTask = document.querySelector('.add-task');
+const addTask = document.getElementById('addTask');
 addTask.addEventListener('keydown', (event) => {
-  if (event.keyCode === 13) {
+  if (event.key === enter) {
     add();
     render();
   }
