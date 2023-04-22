@@ -11,9 +11,9 @@ addButton.addEventListener('click', () => {
   render();
 });
 
-const addTask = document.querySelector('.add-task');
+const addTask = document.getElementById('addTask');
 addTask.addEventListener('keydown', (event) => {
-  if (event.keyCode === 13) {
+  if (event.key === 'Enter') {
     add();
     render();
   }
@@ -25,7 +25,7 @@ tasksContainer.addEventListener('click', (event) => {
   const deleteTaskIcon = event.target.closest('.delete-task-icon');
   if (deleteTaskIcon) {
     const deleteTaskIcons = tasksContainer.querySelectorAll('.delete-task-icon');
-    const index = Array.from(deleteTaskIcons).indexOf(deleteTaskIcon);
+    Array.from(deleteTaskIcons).indexOf(deleteTaskIcon);
     render();
   }
 });
@@ -88,7 +88,6 @@ tasksContainer.addEventListener('click', (event) => {
     const deleteTaskIcons = tasksContainer.querySelectorAll('.delete-task-icon');
     const index = Array.from(deleteTaskIcons).indexOf(deleteTaskIcon);
     remove(index);
-    render();
   }
 });
 
