@@ -27,5 +27,5 @@ const clearAll = () => {
 };
 
 module.exports = {
-  TODO, clearAll
+  TODO, clearAll,
 };
